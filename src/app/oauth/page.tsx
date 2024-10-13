@@ -5,8 +5,6 @@ import { tgAuthorize, validateAuth } from "@features/server/tgAuth";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-
-
 type Props = Readonly<{
   searchParams: TgResponseQuery;
 }>;
