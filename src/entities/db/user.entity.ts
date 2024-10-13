@@ -9,16 +9,16 @@ import {
 
 @Entity('users')
 export class UserEntity extends BaseEntity {
-  @PrimaryColumn('uuid')
+  @PrimaryColumn('varchar')
   id!: string;
 
-  @Column()
+  @Column({nullable: true})
   first_name?: string;
 
-  @Column()
+  @Column({nullable: true})
   username?: string;
 
-  @Column()
+  @Column({nullable: true})
   photo_url?: string;
 
   @Column()

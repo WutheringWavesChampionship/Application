@@ -1,12 +1,15 @@
 import { TgResponseQuery } from "@entities/interfaces/";
 import { AppDataSource } from "../db/data-source";
 import { UserEntity } from "@entities/db";
+import "reflect-metadata"
+
 
 export const tgAuthorize = async ({auth_date, first_name, id, photo_url, username}: Omit<TgResponseQuery, 'hash'>) =>{
- const dataSource = await AppDataSource.initialize()
-  const manager = dataSource.manager
+ const source =  await AppDataSource.connect()
+  const manager = source.manager
   const existed = await manager.findOneBy(UserEntity, {id})
   if (existed) {
+    await AppDataSource.close()
     return existed
   } else {
     const user = new UserEntity()
@@ -15,6 +18,8 @@ export const tgAuthorize = async ({auth_date, first_name, id, photo_url, usernam
     user.photo_url = photo_url || undefined
     user.first_name = first_name || undefined
     user.username = username || undefined
-    return manager.save(user)
+    const savedUser = await manager.save(user)
+    await AppDataSource.close()
+    return savedUser
   }
 }

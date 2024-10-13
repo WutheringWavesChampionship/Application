@@ -1,4 +1,6 @@
+'use server'
 import jwt from 'jsonwebtoken';
+
 
 interface Props {
   id: string;

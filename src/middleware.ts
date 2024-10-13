@@ -1,7 +1,9 @@
 import {
   ACCEPTED_LANGUAGES,
   LOCALE_COOKIE_NAME,
+  SET_TOKEN_PATH,
   TG_AUTH_PATH,
+  USER_TOKEN_COOKIE_NAME,
 } from '@entities/constants';
 import { getClientLocale } from '@features/server/localization';
 import { NextResponse, NextRequest } from 'next/server';
@@ -9,12 +11,20 @@ import { NextResponse, NextRequest } from 'next/server';
 const locales = ACCEPTED_LANGUAGES;
 
 export async function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const { pathname, searchParams } = request.nextUrl;
 
-  console.log(pathname)
   if (pathname.startsWith(TG_AUTH_PATH)) {
-    console.log(TG_AUTH_PATH)
     return
+  }
+  if (pathname.startsWith(SET_TOKEN_PATH)) {
+    const token = searchParams.get(USER_TOKEN_COOKIE_NAME)
+    searchParams.delete(USER_TOKEN_COOKIE_NAME)
+    request.nextUrl.pathname = '/';
+    const response = NextResponse.redirect(request.nextUrl);
+    if (token) {
+      response.cookies.set(USER_TOKEN_COOKIE_NAME, token, { secure: true });
+    }
+    return response;
   }
 
   const pathnameLocale = locales.find(
