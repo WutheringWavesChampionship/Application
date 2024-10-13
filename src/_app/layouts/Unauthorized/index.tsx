@@ -14,6 +14,7 @@ export const UnauthorizedLayout = ({ children, lang }: Props) => {
   const { user } = useContext(UserContext);
   if (user) {
     router.push(`/${lang}${AppRoutesEnum.MAIN}`)
+    return <></>
   } else {
     return children;
   }

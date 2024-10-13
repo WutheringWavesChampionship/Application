@@ -14,6 +14,7 @@ export const AuthorizedLayout = ({ children, lang }: Props) => {
   const { user } = useContext(UserContext);
   if (!user) {
     router.push(`/${lang}${AppRoutesEnum.AUTH}`)
+    return <></>
   } else {
     return children;
   }
