@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { StylesLayout } from "@app//layouts";
-
+import "reflect-metadata"
 
 export const metadata: Metadata = {
   title: "Create Next App",
