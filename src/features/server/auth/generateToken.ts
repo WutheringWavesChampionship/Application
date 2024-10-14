@@ -3,7 +3,7 @@ import { JWTPayload } from '@entities/interfaces';
 import jwt from 'jsonwebtoken';
 
 
-export const generateToken = (props: JWTPayload)=>{
+export const generateToken = async (props: JWTPayload)=>{
   const secretKey = process.env.JWT_SECRET_KEY
   if (!secretKey) {
     return null

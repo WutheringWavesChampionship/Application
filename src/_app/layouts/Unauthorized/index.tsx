@@ -1,8 +1,9 @@
 'use client'
-import { AppRoutesEnum, LanguageEnum } from "@entities/constants";
+import { ADMIN_LOGIN_TOKEN_KEY, AppRoutesEnum, LanguageEnum } from "@entities/constants";
 import { UserContext } from "@entities/context";
+import { adminLogin } from "@features/server/auth";
 import { useRouter } from "next/navigation";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 interface Props {
   children: React.ReactNode;
@@ -12,10 +13,17 @@ interface Props {
 export const UnauthorizedLayout = ({ children, lang }: Props) => {
   const router = useRouter()
   const { user } = useContext(UserContext);
-  if (user) {
-    router.push(`/${lang}${AppRoutesEnum.MAIN}`)
-    return <></>
-  } else {
-    return children;
-  }
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const adminToken = window.localStorage.getItem(ADMIN_LOGIN_TOKEN_KEY)
+      if (adminToken) {
+        adminLogin(adminToken)
+      }
+    }
+    if (user) {
+      router.push(`/${lang}${AppRoutesEnum.MAIN}`)
+    }
+  }, [lang, router, user])
+
+  return children;
 }

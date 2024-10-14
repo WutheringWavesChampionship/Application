@@ -1,4 +1,4 @@
-import { UserEntity } from '@entities/db';
+import { CharacterEntity, UserEntity, ElementEntity } from '@entities/db';
 import { DataSource } from 'typeorm';
 import 'server-only'
 
@@ -7,6 +7,6 @@ export const AppDataSource = new DataSource({
   url: process.env.POSTGRES_URL,
   logging: false,
   synchronize: true,
-  entities: [UserEntity],
+  entities: [UserEntity, CharacterEntity, ElementEntity],
 });
 

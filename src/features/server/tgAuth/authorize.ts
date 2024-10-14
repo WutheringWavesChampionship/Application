@@ -4,10 +4,10 @@ import { UserEntity } from "@entities/db";
 import "reflect-metadata"
 
 
-export const tgAuthorize = async ({auth_date, first_name, id, photo_url, username}: Omit<TgResponseQuery, 'hash'>) =>{
- const source =  await AppDataSource.connect()
+export const tgAuthorize = async ({ auth_date, first_name, id, photo_url, username }: Omit<TgResponseQuery, 'hash'>) => {
+  const source = await AppDataSource.connect()
   const manager = source.manager
-  const existed = await manager.findOneBy(UserEntity, {id})
+  const existed = await manager.findOneBy(UserEntity, { id })
   if (existed) {
     await AppDataSource.close()
     return existed
