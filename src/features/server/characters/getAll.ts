@@ -5,7 +5,7 @@ import { AppDataSource } from "../db/data-source"
 export const getAll = async () => {
   const source = await AppDataSource.connect()
   const manager = source.manager
-  const data = await manager.find(CharacterEntity, { order: { id: "ASC", element: 'ASC'} })
+  const data = await manager.find(CharacterEntity, { order: { element: 'ASC', id: 'ASC'} })
   await AppDataSource.close()
   return data
 }
