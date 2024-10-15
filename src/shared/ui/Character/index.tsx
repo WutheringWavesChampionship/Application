@@ -13,7 +13,7 @@ interface Props {
 export const Character = ({ className, element, imagePath, localeName }: Props) => {
   return (
     <div className={classNames(styles.wrapper, className)}>
-      <div className={styles.image}>
+      <div className={classNames(styles.image, styles[element])}>
         <Image width={100} height={100} src={imagePath} alt='localeName' />
       </div>
       <p>{localeName}</p>
