@@ -1,5 +1,6 @@
-import { CharacterEntity, UserEntity, ElementEntity } from '@entities/db';
+import { CharacterEntity, UserEntity } from '@entities/db';
 import { DataSource } from 'typeorm';
+import * as Migrations from './migrations';
 import 'server-only'
 
 export const AppDataSource = new DataSource({
@@ -7,6 +8,7 @@ export const AppDataSource = new DataSource({
   url: process.env.POSTGRES_URL,
   logging: false,
   synchronize: true,
-  entities: [UserEntity, CharacterEntity, ElementEntity],
+  entities: [UserEntity, CharacterEntity],
+  migrations: Object.values(Migrations)
 });
 

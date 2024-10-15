@@ -1,5 +1,4 @@
 'use server'
-
 import { cookies } from "next/headers"
 import { tgAuthorize } from "../tgAuth"
 import { generateToken } from "./generateToken"
@@ -13,13 +12,12 @@ export const adminLogin = async (adminToken: string)=>{
   }
   if (adminToken === acceptedToken) {
     try {
-      const user = await tgAuthorize({id: 'admin', auth_date: new Date().getTime() / 1000, username: 'admin'})
-      console.log(user)
+      const user = await tgAuthorize({id: 'admin', auth_date: new Date().getTime() / 1000, first_name: 'admin'})
       if (user) {
         const token = await generateToken({
           auth_date: user.auth_date,
-          id: user.id,
-          first_name: user.first_name,
+          id: String(user.id),
+          first_name: user.username,
           username: user.username,
         })
         if (!token) {

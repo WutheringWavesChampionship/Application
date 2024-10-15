@@ -1,7 +1,8 @@
 export enum ElementEnum {
   SPECTRO = 'spectro',
-  HAVOC = 'HAVOC',
+  HAVOC = 'havoc',
   AERO = 'aero',
   GLACIO = 'glacio',
   FUSION = 'fusion',
+  ELECTRO = 'electro',
 }

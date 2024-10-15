@@ -1,26 +1,28 @@
 import {
   Entity,
   Column,
-  ManyToOne,
-  JoinColumn,
 } from 'typeorm';
 import { BaseEntity } from './baseEntity';
-import { ElementEntity } from './element.entity';
+import { ElementEnum } from '@entities/constants';
 
 @Entity('characters')
 export class CharacterEntity extends BaseEntity {
 
-  @Column()
+  @Column({unique: true})
   localeName!: string;
 
   @Column()
   imagePath!: string;
 
-  @ManyToOne(() => ElementEntity, (dict) => dict.id, { onDelete: 'CASCADE' })
-  @JoinColumn({
-    name: 'elementId',
+  @Column({
+    enum: [
+      ElementEnum.AERO,
+      ElementEnum.FUSION,
+      ElementEnum.GLACIO,
+      ElementEnum.HAVOC,
+      ElementEnum.SPECTRO,
+      ElementEnum.ELECTRO,
+    ], type: 'enum'
   })
-  element!: ElementEntity;
-  @Column()
-  elementId!: number;
+  element!: ElementEnum;
 }
