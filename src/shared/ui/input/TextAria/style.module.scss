@@ -1,0 +1,27 @@
+.input {
+  display: flex;
+  align-items: center;
+  outline: none;
+  border: none;
+  min-width: 100%;
+  min-height: 240px;
+
+  &::placeholder {
+    color: grey;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+}
+
+.error {
+  color: red;
+
+  path {
+    fill: red;
+  }
+
+  &::placeholder {
+    color: red;
+  }
+}

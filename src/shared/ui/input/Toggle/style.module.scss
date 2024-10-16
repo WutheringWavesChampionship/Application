@@ -1,0 +1,39 @@
+.wrapper {
+  position: relative;
+  background-color: var(--background);
+  border-radius: 100px;
+  width: 46px;
+  height: 24px;
+  transition: all var(--animation-duration) ease;
+  cursor: pointer;
+  border: none;
+
+  & .thumb {
+    height: 20px;
+    width: 20px;
+    background-color: var(--text_button_primary);
+    border-radius: 50%;
+    transition: all var(--animation-duration) ease;
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.toggled {
+    background-color: var(--icons_primary);
+
+    & .thumb {
+      left: calc(46px - 22px);
+    }
+  }
+
+  &:disabled {
+    background-color: var(--text_disabled);
+    pointer-events: none;
+
+    & .thumb {
+      background-color: var(--surface_divider);
+    }
+  }
+}

@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { UserContext } from '@entities/context';
 import Link from 'next/link';
 import { LanguageEnum } from '@entities/constants';
+import { logout } from '@features/server/auth/logout';
 
 interface Props {
   className?: string;
@@ -18,6 +19,7 @@ export const MainPage = ({ className, language }: Props) => {
       <p>{user?.id}</p>
       <p>main page</p>
       <Link href={`/${language}/settings`}>settings</Link>
+      <button onClick={() => logout()}>logout</button>
     </div>
   );
 };

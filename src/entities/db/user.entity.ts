@@ -8,7 +8,7 @@ export class UserEntity extends BaseEntity implements IUserFull {
   username!: string;
 
   @Column({ nullable: true })
-  password!: string;
+  password?: string;
 
   @Column({ nullable: true })
   photo_url?: string;

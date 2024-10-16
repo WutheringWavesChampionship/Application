@@ -1,4 +1,5 @@
 import localFont from 'next/font/local';
+import { ToastContainer } from 'react-toastify';
 import '../../styles/globals.scss';
 
 const geistSans = localFont({
@@ -19,6 +20,7 @@ interface Props {
 export const StylesLayout = ({ children }: Props) => {
   return (
     <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <ToastContainer />
       {children}
     </body>
   );

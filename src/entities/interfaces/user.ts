@@ -7,7 +7,7 @@ export interface JWTPayload {
 
 export interface IUserFull {
   username: string;
-  password: string;
+  password?: string;
   photo_url?: string;
   auth_date: Date;
   telegram_id?: string;
