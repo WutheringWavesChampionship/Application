@@ -1,8 +1,11 @@
 .wrapper {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 24px;
+  margin: auto;
+  max-width: 50%;
 }
 
 .character {
