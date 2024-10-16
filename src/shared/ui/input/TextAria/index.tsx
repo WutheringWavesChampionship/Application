@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { type DetailedHTMLProps, type TextareaHTMLAttributes } from 'react';
-import { ErrorAndLabelSkeleton } from '../..';
+import { ErrorAndLabelSkeleton } from '../../ErrorAndLabelSkeleton';
 import styles from './style.module.scss';
 
 interface Props
