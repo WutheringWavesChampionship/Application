@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: auto;
+}
+
+.userData {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.constants {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.button {
+  width: 50px;
+}

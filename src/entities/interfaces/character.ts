@@ -11,9 +11,10 @@ export interface ICharacter {
 }
 
 export interface UserData {
-  constants: number;
-  level: number;
-  critValue: number;
+  id: number;
+  constants: number | string;
+  level: number | string;
+  critValue?: number | string;
 }
 
 export interface UserCharacter extends ICharacter {

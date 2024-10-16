@@ -4,6 +4,7 @@ import { headers } from 'next/headers';
 import { DEFAULT_LANGUAGE, LOCALE_COOKIE_NAME } from '@entities/constants';
 import { UserProvider } from '@app/providers';
 import { getAuthorizedUser } from '@features/server/auth/getAuthorizedUser';
+import { AppDataSource } from '@features/server/db/data-source';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,6 +16,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  if (!AppDataSource.isInitialized) {
+    const source = await AppDataSource.initialize();
+    source.runMigrations();
+  }
   const lang = headers().get(LOCALE_COOKIE_NAME) || DEFAULT_LANGUAGE;
   const user = await getAuthorizedUser();
   return (

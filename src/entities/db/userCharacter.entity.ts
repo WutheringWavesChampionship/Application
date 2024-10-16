@@ -29,5 +29,5 @@ export class UserCharacterEntity extends BaseEntity implements UserData {
   level!: number;
 
   @Column({ nullable: true, type: 'smallint' })
-  critValue!: number;
+  critValue?: number;
 }

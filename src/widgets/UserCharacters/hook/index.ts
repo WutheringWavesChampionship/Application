@@ -1,6 +1,6 @@
 'use client';
 import { UserCharacter } from '@entities/interfaces/character';
-import { getUserCharacters } from '@features/server/characters/getUserCharacters';
+import { getUserCharacters } from '@features/server/characters/userCharacter';
 import { useCallback, useEffect, useState } from 'react';
 
 export const useGetUserCharacter = (id: number) => {

@@ -2,16 +2,14 @@ import classNames from 'classnames';
 import { ElementEnum } from '@entities/constants';
 import Image from 'next/image';
 import styles from './style.module.scss';
+import { UserData } from '@entities/interfaces';
 
 interface Props {
   className?: string;
   localeName: string;
   imagePath: string;
   element: ElementEnum;
-  additionalInfo?: {
-    constants: number | string;
-    level: number;
-  };
+  additionalInfo?: Partial<UserData>;
 }
 
 export const Character = ({

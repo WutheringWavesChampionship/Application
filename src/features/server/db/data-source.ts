@@ -11,3 +11,9 @@ export const AppDataSource = new DataSource({
   entities: [UserEntity, CharacterEntity, UserCharacterEntity],
   migrations: Object.values(Migrations),
 });
+
+export const initializeDb = async () => {
+  if (!AppDataSource.isInitialized) {
+    await AppDataSource.initialize();
+  }
+};

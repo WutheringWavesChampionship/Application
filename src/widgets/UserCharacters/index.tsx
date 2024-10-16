@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import styles from './style.module.scss';
 import { useGetUserCharacter } from './hook';
 import { Character } from '@shared/ui/Character';
+import Link from 'next/link';
 
 interface Props {
   className?: string;
@@ -14,14 +15,21 @@ export const UserCharacters = ({ className, id }: Props) => {
   return (
     <div className={classNames(styles.wrapper, className)}>
       {data.map((el) => (
-        <Character
+        <Link
           key={`character-${el.id}`}
-          additionalInfo={{
-            constants: el.userData?.constants || 'n/a',
-            level: el.userData?.level || 0,
-          }}
-          {...el}
-        />
+          href={`characters/${el.id}`}
+          className={styles.link}
+        >
+          <Character
+            className={styles.character}
+            additionalInfo={{
+              constants: el.userData?.constants || 'n/a',
+              level: el.userData?.level || 0,
+              critValue: el.userData?.critValue || 0,
+            }}
+            {...el}
+          />
+        </Link>
       ))}
     </div>
   );
