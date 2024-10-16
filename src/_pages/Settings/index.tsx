@@ -1,20 +1,22 @@
+'use client'
 import classNames from 'classnames';
 import styles from './style.module.scss';
-import { getAll } from '@features/server/characters';
-import { Character } from '@shared/ui/Character';
+import { UserCharacters } from '@widgets/UserCharacters';
+import { useContext } from 'react';
+import { UserContext } from '@entities/context';
 
 interface Props {
- className?: string;
+  className?: string;
 }
 
-export const UserSettings = async ({ className }: Props) => {
-  const characters = await getAll()
-  // console.log(characters)
+export const UserSettings = ({ className }: Props) => {
+  const { user } = useContext(UserContext)
+  if (!user) {
+    return <></>
+  }
   return (
     <div className={classNames(styles.wrapper, className)}>
-      {characters.map((el)=>(
-        <Character key={`character-${el.id}`} {...el} />
-      ))}
+      <UserCharacters id={user.id} />
     </div>
   );
 }

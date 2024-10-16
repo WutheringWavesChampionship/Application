@@ -6,3 +6,8 @@ export enum ElementEnum {
   FUSION = 'fusion',
   ELECTRO = 'electro',
 }
+
+export enum RarityEnum {
+  LEGENDARY = 'legendary',
+  COMMON = 'common',
+}

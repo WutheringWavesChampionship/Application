@@ -3,7 +3,7 @@ import { StylesLayout } from "@app//layouts";
 import { headers } from "next/headers";
 import { DEFAULT_LANGUAGE, LOCALE_COOKIE_NAME } from "@entities/constants";
 import { UserProvider } from "@app/providers";
-import { getAuthorizedUser } from "@features/server/auth";
+import { getAuthorizedUser } from "@features/server/auth/getAuthorizedUser";
 
 export const metadata: Metadata = {
   title: "Create Next App",

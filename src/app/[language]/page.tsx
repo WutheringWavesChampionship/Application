@@ -8,7 +8,7 @@ interface Props {
 export default function Home({ params: { language } }: Props) {
   return (
     <AuthorizedLayout lang={language}>
-      <MainPage />
+      <MainPage language={language} />
     </AuthorizedLayout>
   );
 }

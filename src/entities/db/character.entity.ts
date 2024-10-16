@@ -3,12 +3,13 @@ import {
   Column,
 } from 'typeorm';
 import { BaseEntity } from './baseEntity';
-import { ElementEnum } from '@entities/constants';
+import { ElementEnum, RarityEnum } from '@entities/constants';
+import { ICharacter } from '@entities/interfaces/character';
 
 @Entity('characters')
-export class CharacterEntity extends BaseEntity {
+export class CharacterEntity extends BaseEntity implements ICharacter {
 
-  @Column({unique: true})
+  @Column({ unique: true })
   localeName!: string;
 
   @Column()
@@ -25,4 +26,14 @@ export class CharacterEntity extends BaseEntity {
     ], type: 'enum'
   })
   element!: ElementEnum;
+
+  @Column({
+    enum: [
+      RarityEnum.COMMON,
+      RarityEnum.LEGENDARY,
+    ],
+    type: 'enum',
+    default: RarityEnum.COMMON,
+  })
+  rarity!: RarityEnum;
 }

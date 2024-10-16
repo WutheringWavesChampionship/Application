@@ -48,6 +48,7 @@ export async function middleware(request: NextRequest) {
   if (pathname.endsWith('.png')) return;
   if (pathname.endsWith('.jpg')) return;
   if (pathname.endsWith('.jpeg')) return;
+  if (pathname.endsWith('.webp')) return;
 
   // Redirect if there is no locale
   const locale = getClientLocale(request);

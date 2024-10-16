@@ -16,7 +16,7 @@ export const adminLogin = async (adminToken: string)=>{
       if (user) {
         const token = await generateToken({
           auth_date: user.auth_date,
-          id: String(user.id),
+          id: user.id,
           first_name: user.username,
           username: user.username,
         })

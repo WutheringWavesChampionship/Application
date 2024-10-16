@@ -1,7 +1,7 @@
 'use client'
 import { ADMIN_LOGIN_TOKEN_KEY, AppRoutesEnum, LanguageEnum } from "@entities/constants";
 import { UserContext } from "@entities/context";
-import { adminLogin } from "@features/server/auth";
+import { adminLogin } from "@features/server/auth/adminLogin";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 

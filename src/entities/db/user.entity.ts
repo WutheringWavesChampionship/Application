@@ -3,9 +3,10 @@ import {
   Column,
 } from 'typeorm';
 import { BaseEntity } from './baseEntity';
+import { IUserFull } from '@entities/interfaces';
 
 @Entity('users')
-export class UserEntity extends BaseEntity {
+export class UserEntity extends BaseEntity implements IUserFull {
   @Column({unique:  true})
   username!: string;
 
