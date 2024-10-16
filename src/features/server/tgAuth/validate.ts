@@ -1,9 +1,16 @@
-import { TgResponseQuery } from "@entities/interfaces";
-import { createHash, createHmac } from "crypto";
+import { TgResponseQuery } from '@entities/interfaces';
+import { createHash, createHmac } from 'crypto';
 
-export const validateAuth = async ({auth_date, first_name, hash, id, photo_url, username}: TgResponseQuery) =>{
-  const data_check_string = `auth_date=${auth_date}${first_name?`\nfirst_name=${first_name}`:''}\nid=${id}${photo_url?`\nphoto_url=${photo_url}`:''}${username?`\nusername=${username}`:''}`;
-  const tgBotToken = process.env.TG_BOT_TOKEN
+export const validateAuth = async ({
+  auth_date,
+  first_name,
+  hash,
+  id,
+  photo_url,
+  username,
+}: TgResponseQuery) => {
+  const data_check_string = `auth_date=${auth_date}${first_name ? `\nfirst_name=${first_name}` : ''}\nid=${id}${photo_url ? `\nphoto_url=${photo_url}` : ''}${username ? `\nusername=${username}` : ''}`;
+  const tgBotToken = process.env.TG_BOT_TOKEN;
   if (!tgBotToken) {
     return null;
   }
@@ -16,4 +23,4 @@ export const validateAuth = async ({auth_date, first_name, hash, id, photo_url, 
   } else {
     return false;
   }
-}
+};

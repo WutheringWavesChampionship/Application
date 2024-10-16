@@ -1,5 +1,9 @@
-import { ACCEPTED_LANGUAGES, DEFAULT_LANGUAGE, LOCALE_COOKIE_NAME } from "@entities/constants";
-import { NextRequest } from "next/server";
+import {
+  ACCEPTED_LANGUAGES,
+  DEFAULT_LANGUAGE,
+  LOCALE_COOKIE_NAME,
+} from '@entities/constants';
+import { NextRequest } from 'next/server';
 
 export const getClientLocale = (request: NextRequest) => {
   const userLanguage = request.cookies.get(LOCALE_COOKIE_NAME)?.value;

@@ -1,6 +1,6 @@
-import { AuthorizedLayout } from "@app/layouts/Authorized";
-import { LanguageEnum } from "@entities/constants";
-import { MainPage } from "@pages/Main";
+import { AuthorizedLayout } from '@app/layouts/Authorized';
+import { LanguageEnum } from '@entities/constants';
+import { MainPage } from '@pages/Main';
 
 interface Props {
   params: { language: LanguageEnum };

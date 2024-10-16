@@ -8,10 +8,10 @@ type Props = Readonly<{
 
 const Page = async ({ params: { language } }: Props) => {
   return (
-    <UnauthorizedLayout lang={language} >
+    <UnauthorizedLayout lang={language}>
       <AuthPage />
     </UnauthorizedLayout>
   );
-}
+};
 
-export default Page
+export default Page;

@@ -1,8 +1,8 @@
-'use client'
-import { AppRoutesEnum, LanguageEnum } from "@entities/constants";
-import { UserContext } from "@entities/context";
-import { useRouter } from "next/navigation";
-import { useContext } from "react";
+'use client';
+import { AppRoutesEnum, LanguageEnum } from '@entities/constants';
+import { UserContext } from '@entities/context';
+import { useRouter } from 'next/navigation';
+import { useContext } from 'react';
 
 interface Props {
   children: React.ReactNode;
@@ -10,12 +10,12 @@ interface Props {
 }
 
 export const AuthorizedLayout = ({ children, lang }: Props) => {
-  const router = useRouter()
+  const router = useRouter();
   const { user } = useContext(UserContext);
   if (!user) {
-    router.push(`/${lang}${AppRoutesEnum.AUTH}`)
-    return <></>
+    router.push(`/${lang}${AppRoutesEnum.AUTH}`);
+    return <></>;
   } else {
     return children;
   }
-}
+};

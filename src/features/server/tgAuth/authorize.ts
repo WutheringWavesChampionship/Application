@@ -1,24 +1,29 @@
-import { TgResponseQuery } from "@entities/interfaces/";
-import { AppDataSource } from "../db/data-source";
-import { UserEntity } from "@entities/db";
-import "reflect-metadata"
+import { TgResponseQuery } from '@entities/interfaces/';
+import { AppDataSource } from '../db/data-source';
+import { UserEntity } from '@entities/db';
+import 'reflect-metadata';
 
-
-export const tgAuthorize = async ({ auth_date, first_name, id, photo_url, username }: Omit<TgResponseQuery, 'hash'>) => {
-  const source = await AppDataSource.connect()
-  const manager = source.manager
-  const existed = await manager.findOneBy(UserEntity, { telegram_id: id })
+export const tgAuthorize = async ({
+  auth_date,
+  first_name,
+  id,
+  photo_url,
+  username,
+}: Omit<TgResponseQuery, 'hash'>) => {
+  const source = await AppDataSource.connect();
+  const manager = source.manager;
+  const existed = await manager.findOneBy(UserEntity, { telegram_id: id });
   if (existed) {
-    await AppDataSource.close()
-    return existed
+    await AppDataSource.close();
+    return existed;
   } else {
-    const user = new UserEntity()
-    user.telegram_id = id
+    const user = new UserEntity();
+    user.telegram_id = id;
     user.auth_date = new Date(Number(auth_date) * 1000);
-    user.photo_url = photo_url || undefined
-    user.username = username || first_name
-    const savedUser = await manager.save(user)
-    await AppDataSource.close()
-    return savedUser
+    user.photo_url = photo_url || undefined;
+    user.username = username || first_name;
+    const savedUser = await manager.save(user);
+    await AppDataSource.close();
+    return savedUser;
   }
-}
+};

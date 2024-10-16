@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import classNames from 'classnames';
 import styles from './style.module.scss';
 import { UserCharacters } from '@widgets/UserCharacters';
@@ -10,13 +10,13 @@ interface Props {
 }
 
 export const UserSettings = ({ className }: Props) => {
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
   if (!user) {
-    return <></>
+    return <></>;
   }
   return (
     <div className={classNames(styles.wrapper, className)}>
       <UserCharacters id={user.id} />
     </div>
   );
-}
+};

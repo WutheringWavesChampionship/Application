@@ -1,5 +1,4 @@
-
-'use client'
+'use client';
 interface Props {
   radius?: number;
   size?: 'medium' | 'large' | 'small';
@@ -17,12 +16,12 @@ export const TelegramLoginButton = ({
   displayAvatar = false,
   origin,
 }: Props) => {
-  const searchParams = new URLSearchParams()
-  searchParams.set('origin', origin)
-  searchParams.set('return_to', origin + redirect)
-  searchParams.set('size', size)
-  searchParams.set('userpic', displayAvatar.toString())
-  searchParams.set('radius', radius.toString())
+  const searchParams = new URLSearchParams();
+  searchParams.set('origin', origin);
+  searchParams.set('return_to', origin + redirect);
+  searchParams.set('size', size);
+  searchParams.set('userpic', displayAvatar.toString());
+  searchParams.set('radius', radius.toString());
 
   return (
     <iframe
@@ -30,8 +29,13 @@ export const TelegramLoginButton = ({
       src={`https://oauth.telegram.org/embed/${botName}?${searchParams.toString()}`}
       width={238}
       height={40}
-      style={{overflow: 'hidden', colorScheme: 'dark light', border: 'none', height: 40, width: 238}}
+      style={{
+        overflow: 'hidden',
+        colorScheme: 'dark light',
+        border: 'none',
+        height: 40,
+        width: 238,
+      }}
     />
-
   );
-}
+};

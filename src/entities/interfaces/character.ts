@@ -1,4 +1,4 @@
-import { ElementEnum, RarityEnum } from "../constants";
+import { ElementEnum, RarityEnum } from '../constants';
 
 export interface ICharacter {
   localeName: string;
@@ -11,9 +11,9 @@ export interface ICharacter {
 }
 
 export interface UserData {
-    constants: number;
-    level: number;
-    critValue: number;
+  constants: number;
+  level: number;
+  critValue: number;
 }
 
 export interface UserCharacter extends ICharacter {

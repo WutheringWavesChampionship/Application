@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import classNames from 'classnames';
 import styles from './style.module.scss';
 import { useContext } from 'react';
@@ -9,7 +9,7 @@ import { LanguageEnum } from '@entities/constants';
 
 interface Props {
   className?: string;
-  language: LanguageEnum
+  language: LanguageEnum;
 }
 
 export const MainPage = ({ className, language }: Props) => {
@@ -19,11 +19,13 @@ export const MainPage = ({ className, language }: Props) => {
       <p>{user?.id}</p>
       <p>main page</p>
       <button
-      onClick={()=>{
-        runMigration().then((val)=>console.log(val))
-      }}
-      >run migration</button>
+        onClick={() => {
+          runMigration().then((val) => console.log(val));
+        }}
+      >
+        run migration
+      </button>
       <Link href={`/${language}/settings`}>settings</Link>
     </div>
   );
-}
+};

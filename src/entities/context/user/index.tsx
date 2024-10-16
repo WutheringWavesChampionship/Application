@@ -3,7 +3,7 @@ import { JWTPayload } from '../../interfaces';
 import { createContext } from 'react';
 
 interface Props {
-  user?: JWTPayload
+  user?: JWTPayload;
 }
 
 export const UserContext = createContext<Props>({});

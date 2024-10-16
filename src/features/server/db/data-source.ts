@@ -1,7 +1,7 @@
 import { CharacterEntity, UserCharacterEntity, UserEntity } from '@entities/db';
 import { DataSource } from 'typeorm';
 import * as Migrations from './migrations';
-import 'server-only'
+import 'server-only';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -9,6 +9,5 @@ export const AppDataSource = new DataSource({
   logging: false,
   synchronize: true,
   entities: [UserEntity, CharacterEntity, UserCharacterEntity],
-  migrations: Object.values(Migrations)
+  migrations: Object.values(Migrations),
 });
-

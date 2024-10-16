@@ -1,1 +1,1 @@
-export * from './Button.async'
+export * from './Button.async';

@@ -14,11 +14,11 @@ export async function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
   if (pathname.startsWith(TG_AUTH_PATH)) {
-    return
+    return;
   }
   if (pathname.startsWith(SET_TOKEN_PATH)) {
-    const token = searchParams.get(USER_TOKEN_COOKIE_NAME)
-    searchParams.delete(USER_TOKEN_COOKIE_NAME)
+    const token = searchParams.get(USER_TOKEN_COOKIE_NAME);
+    searchParams.delete(USER_TOKEN_COOKIE_NAME);
     request.nextUrl.pathname = '/';
     const response = NextResponse.redirect(request.nextUrl);
     if (token) {
