@@ -17,8 +17,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   if (!AppDataSource.isInitialized) {
-    const source = await AppDataSource.initialize();
-    source.runMigrations();
+    await AppDataSource.initialize();
   }
   const lang = headers().get(LOCALE_COOKIE_NAME) || DEFAULT_LANGUAGE;
   const user = await getAuthorizedUser();
