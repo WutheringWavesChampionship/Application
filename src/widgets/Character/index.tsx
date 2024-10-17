@@ -12,6 +12,7 @@ interface Props {
 
 export const CharacterWidget = ({ className, data }: Props) => {
   const {
+    t,
     userData,
     createNew,
     changeLevel,
@@ -22,7 +23,11 @@ export const CharacterWidget = ({ className, data }: Props) => {
   } = useCharacterWidget(data.id);
   return (
     <div className={classNames(styles.wrapper, className)}>
-      <Character className={styles.character} {...data} />
+      <Character
+        className={styles.character}
+        name={t(data.localeName)}
+        {...data}
+      />
       {userData ? (
         <div className={styles.userData}>
           <div className={styles.constants}>

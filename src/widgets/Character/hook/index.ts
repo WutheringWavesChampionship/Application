@@ -1,5 +1,6 @@
 import { UserContext } from '@entities/context';
 import { UserData } from '@entities/interfaces';
+import { useTranslation } from '@features/client';
 import {
   createUserCharacter,
   deleteUserCharacter,
@@ -12,6 +13,7 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 export const useCharacterWidget = (characterId: number) => {
   const router = useRouter();
   const { user } = useContext(UserContext);
+  const { t } = useTranslation('characters');
   const [userData, setUserData] = useState<UserData>();
 
   const getUserData = useCallback(async () => {
@@ -84,6 +86,7 @@ export const useCharacterWidget = (characterId: number) => {
   }, [getUserData]);
 
   return {
+    t,
     userData,
     createNew,
     changeLevel,
