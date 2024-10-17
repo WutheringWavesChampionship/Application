@@ -15,21 +15,37 @@ export const useCharacterWidget = (characterId: number) => {
   const { user } = useContext(UserContext);
   const { t } = useTranslation('characters');
   const [userData, setUserData] = useState<UserData>();
+  const [loading, setLoading] = useState(false);
+  const [actionsLoading, setActionsLoading] = useState(false);
 
   const getUserData = useCallback(async () => {
     if (!user?.id) {
       return;
     }
-    const data = await getUserCharacter({ characterId, userId: user.id });
-    setUserData(data || undefined);
+    try {
+      setLoading(true);
+      const data = await getUserCharacter({ characterId, userId: user.id });
+      setUserData(data || undefined);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   }, [characterId, user?.id]);
 
   const createNew = useCallback(async () => {
     if (!user?.id) {
       return;
     }
-    const data = await createUserCharacter({ characterId, userId: user.id });
-    setUserData(data || undefined);
+    try {
+      setActionsLoading(true);
+      const data = await createUserCharacter({ characterId, userId: user.id });
+      setUserData(data || undefined);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setActionsLoading(false);
+    }
   }, [characterId, user?.id]);
 
   const changeLevel = useCallback((val: string) => {
@@ -66,13 +82,20 @@ export const useCharacterWidget = (characterId: number) => {
 
   const saveChanges = useCallback(
     async (data: UserData) => {
-      await updateUserCharacter({
-        constants: Number(data.constants),
-        critValue: data.critValue ? Number(data.critValue) : undefined,
-        id: data.id,
-        level: Number(data.level),
-      });
-      router.push('/settings');
+      try {
+        setActionsLoading(true);
+        await updateUserCharacter({
+          constants: Number(data.constants),
+          critValue: data.critValue ? Number(data.critValue) : undefined,
+          id: data.id,
+          level: Number(data.level),
+        });
+        router.push('/settings');
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setActionsLoading(false);
+      }
     },
     [router],
   );
@@ -87,12 +110,14 @@ export const useCharacterWidget = (characterId: number) => {
 
   return {
     t,
+    loading,
     userData,
     createNew,
+    saveChanges,
     changeLevel,
+    actionsLoading,
     changeCritValue,
     changeConstants,
-    saveChanges,
     deleteCharacter,
   };
 };

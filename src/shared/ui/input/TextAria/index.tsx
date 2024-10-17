@@ -35,9 +35,7 @@ export const StyledTextAria = ({
       {leftItem}
       <textarea
         {...props}
-        className={classNames(styles.input, inputClassName, {
-          [styles.error]: !!error,
-        })}
+        className={classNames(styles.input, inputClassName)}
       />
       {rightItem}
     </ErrorAndLabelSkeleton>

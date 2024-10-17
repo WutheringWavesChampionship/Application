@@ -12,8 +12,8 @@
 .icon {
   width: 20px;
   height: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--foreground);
+  border-radius: var(--radius-xs);
+  border: var(--border-width) solid var(--borders_input);
   outline: none;
   cursor: pointer;
 
@@ -23,18 +23,18 @@
 }
 
 .active {
-  background-color: var(--foreground);
+  background-color: var(--icons_primary);
 
   path {
-    fill: var(--foreground);
+    fill: var(--text_button_primary);
   }
 
   &.disabled {
-    background-color: grey;
+    background-color: var(--button_primary_disabled);
     border: none;
 
     path {
-      fill: grey;
+      fill: var(--text_disabled);
     }
   }
 }

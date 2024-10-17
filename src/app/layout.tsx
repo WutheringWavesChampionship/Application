@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
 import { StylesLayout } from '@app//layouts';
 import { headers } from 'next/headers';
-import { DEFAULT_LANGUAGE, LOCALE_COOKIE_NAME } from '@entities/constants';
+import {
+  DEFAULT_LANGUAGE,
+  LanguageEnum,
+  LOCALE_COOKIE_NAME,
+} from '@entities/constants';
 import { UserProvider } from '@app/providers';
 import { getAuthorizedUser } from '@features/server/auth/getAuthorizedUser';
 import { AppDataSource } from '@features/server/db/data-source';
+import { TranslationsLoaderProvider } from '@app/providers/Translation';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,12 +24,15 @@ export default async function RootLayout({
   if (!AppDataSource.isInitialized) {
     await AppDataSource.initialize();
   }
-  const lang = headers().get(LOCALE_COOKIE_NAME) || DEFAULT_LANGUAGE;
+  const lang = (headers().get(LOCALE_COOKIE_NAME) ||
+    DEFAULT_LANGUAGE) as LanguageEnum;
   const user = await getAuthorizedUser();
   return (
     <html lang={lang}>
       <StylesLayout>
-        <UserProvider user={user}>{children}</UserProvider>
+        <TranslationsLoaderProvider language={lang} namespaces={[]}>
+          <UserProvider user={user}>{children}</UserProvider>
+        </TranslationsLoaderProvider>
       </StylesLayout>
     </html>
   );

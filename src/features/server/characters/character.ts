@@ -13,3 +13,13 @@ export const getCharacter = async (id: number) => {
   }
   return character;
 };
+
+export const getAllCharacters = async () => {
+  await initializeDb();
+  const repository = AppDataSource.getRepository(CharacterEntity);
+  const characters = await repository.find({
+    order: { element: 'ASC', id: 'ASC' },
+  });
+
+  return characters.map((el) => ({ ...el }));
+};

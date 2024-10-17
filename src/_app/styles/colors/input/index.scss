@@ -1,0 +1,21 @@
+:root {
+  --select-option-hover: rgba(48, 48, 48, 1);
+  --select-option-active: rgba(59, 59, 59, 1);
+
+  --input-background: var(--surface_input);
+
+  --input-border: var(--borders_input);
+  --input-border-hover: var(--borders_input_hover);
+  --input-border-active: var(--borders_input_active);
+  --input-border-disabled: var(--borders_input_disabled);
+  --input-border-error: var(--text_error);
+  
+  --input-border-padding: var(--padding-md);
+  --input-border-width: var(--border-width);
+
+  --input-text: var(--text_primary);
+  --input-text-label: var(--text_tertiary);
+  --input-text-disabled: var(--icons_disabled);
+  --input-text-error: var(--text_error);
+  --input-text-placeholder: var(--text_placeholder);
+}

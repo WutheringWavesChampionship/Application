@@ -3,6 +3,8 @@
   flex-direction: column;
   gap: 12px;
   margin: auto;
+  min-width: 524px;
+  position: relative;
 }
 
 .userData {
@@ -15,9 +17,27 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 8px;
 }
 
 .button {
   width: 50px;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.submit {
+  width: 100% !important;
+}
+
+.back {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

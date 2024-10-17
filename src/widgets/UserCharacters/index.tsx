@@ -4,16 +4,19 @@ import styles from './style.module.scss';
 import { useGetUserCharacter } from './hook';
 import { Character } from '@shared/ui/Character';
 import Link from 'next/link';
+import { Paper } from '@shared/ui/Paper';
+import { ICharacter } from '@entities/interfaces';
 
 interface Props {
   className?: string;
   id: number;
+  characters: ICharacter[];
 }
 
-export const UserCharacters = ({ className, id }: Props) => {
-  const { data, t } = useGetUserCharacter(id);
+export const UserCharacters = ({ className, id, characters }: Props) => {
+  const { data, t, loading } = useGetUserCharacter({ id, characters });
   return (
-    <div className={classNames(styles.wrapper, className)}>
+    <Paper className={classNames(styles.wrapper, className)} loading={loading}>
       {data.map((el) => (
         <Link
           key={`character-${el.id}`}
@@ -22,16 +25,20 @@ export const UserCharacters = ({ className, id }: Props) => {
         >
           <Character
             className={styles.character}
-            additionalInfo={{
-              constants: el.userData?.constants || 'n/a',
-              level: el.userData?.level || 0,
-              critValue: el.userData?.critValue || 0,
-            }}
+            additionalInfo={
+              el.userData
+                ? {
+                    constants: el.userData.constants,
+                    level: el.userData.level,
+                    critValue: el.userData.critValue || 0,
+                  }
+                : undefined
+            }
             name={t(el.localeName)}
             {...el}
           />
         </Link>
       ))}
-    </div>
+    </Paper>
   );
 };

@@ -9,6 +9,7 @@ import { LoginWidget } from './Login';
 import { RegistrationWidget } from './Registration';
 import { useTranslation } from '@features/client';
 import { useMemo } from 'react';
+import { Paper } from '@shared/ui/Paper';
 
 interface Props {
   className?: string;
@@ -26,7 +27,7 @@ export const AuthWidget = ({ className, botName }: Props) => {
   ];
 
   return (
-    <div className={classNames(styles.wrapper, className)}>
+    <Paper className={classNames(styles.wrapper, className)}>
       <TelegramLoginButton
         botName={botName}
         redirect={TG_AUTH_PATH}
@@ -36,6 +37,6 @@ export const AuthWidget = ({ className, botName }: Props) => {
       />
       <Divider />
       <Tab labels={labels} tabs={Tabs} />
-    </div>
+    </Paper>
   );
 };

@@ -4,6 +4,11 @@ import styles from './style.module.scss';
 import { ICharacter } from '@entities/interfaces';
 import { useCharacterWidget } from './hook';
 import { Character } from '@shared/ui/Character';
+import { Paper } from '@shared/ui/Paper';
+import { Button } from '@shared/ui/Button';
+import { TextField } from '@shared/ui/input';
+import { TextContent } from '@shared/ui/TextContent';
+import Link from 'next/link';
 
 interface Props {
   className?: string;
@@ -13,62 +18,88 @@ interface Props {
 export const CharacterWidget = ({ className, data }: Props) => {
   const {
     t,
+    loading,
     userData,
     createNew,
+    saveChanges,
     changeLevel,
+    actionsLoading,
     changeCritValue,
     changeConstants,
-    saveChanges,
     deleteCharacter,
   } = useCharacterWidget(data.id);
   return (
-    <div className={classNames(styles.wrapper, className)}>
+    <Paper className={classNames(styles.wrapper, className)} loading={loading}>
       <Character
         className={styles.character}
         name={t(data.localeName)}
         {...data}
       />
+      <Link href={'/settings'} className={styles.back}>
+        <Button variant="secondary">back</Button>
+      </Link>
       {userData ? (
         <div className={styles.userData}>
           <div className={styles.constants}>
-            <button
+            <Button
               disabled={userData.constants === 0}
               onClick={() => changeConstants(-1)}
               className={styles.button}
             >
               -
-            </button>
-            <p>{userData.constants}</p>
-            <button
+            </Button>
+            <TextContent fontWeight="semibold" size={24}>
+              {userData.constants}
+            </TextContent>
+            <Button
               disabled={userData.constants === 6}
               onClick={() => changeConstants(1)}
               className={styles.button}
             >
               +
-            </button>
+            </Button>
           </div>
           <label>
-            <p>level</p>
-            <input
-              type="text"
+            <TextField
+              label={'level'}
               value={userData.level}
               onChange={(ev) => changeLevel(ev.target.value)}
             />
           </label>
           <label>
-            <p>crit value</p>
-            <input
-              type="text"
+            <TextField
+              label={'crit value'}
               value={userData.critValue || ''}
               onChange={(ev) => changeCritValue(ev.target.value)}
             />
           </label>
-          <button onClick={() => saveChanges(userData)}>save</button>
-          <button onClick={() => deleteCharacter(userData.id)}>delete</button>
+
+          <div className={styles.actions}>
+            <Button
+              loading={actionsLoading}
+              className={styles.submit}
+              onClick={() => saveChanges(userData)}
+            >
+              save
+            </Button>
+            <Button
+              loading={actionsLoading}
+              variant="danger"
+              onClick={() => deleteCharacter(userData.id)}
+            >
+              delete
+            </Button>
+          </div>
         </div>
       ) : (
-        <button onClick={createNew}>add new</button>
+        <Button
+          loading={actionsLoading}
+          className={styles.submit}
+          onClick={createNew}
+        >
+          add new
+        </Button>
       )}
-    </div>
+    </Paper>
   );
 };

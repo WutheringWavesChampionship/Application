@@ -1,0 +1,18 @@
+:root {
+  --button_primary: rgba(247, 247, 247, 1);
+  --button_primary_hover: rgba(214, 214, 214, 1);
+  --button_primary_pressed: rgba(173, 173, 173, 1);
+  --button_primary_disabled: rgba(56, 56, 56, 1);
+  
+  --button_secondary: rgba(242, 242, 242, 1);
+  --button_secondary_hover: rgba(230, 230, 230, 1);
+  --button_secondary_pressed: rgba(209, 209, 209, 1);
+  --button_secondary_disabled: rgba(230, 230, 230, 1);
+
+  --button_warning: rgba(248, 228, 228, 1);
+  --button_warning_pressed: rgba(181, 21, 21, 1);
+  
+  --button_text: rgba(107, 159, 255, 1);
+  --button_text_hover: rgba(138, 176, 255, 1);
+  --button_text_pressed: rgba(77, 143, 255, 1);
+}

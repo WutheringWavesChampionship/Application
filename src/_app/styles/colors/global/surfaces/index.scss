@@ -1,0 +1,10 @@
+:root {
+  --surface_background: rgba(25, 25, 25, 1);
+
+  --surface_main_rgb: 38, 38, 38;
+  --surface_main: rgba(var(--surface_main_rgb) 1);
+  --surface_divider: rgba(52, 52, 52, 1);
+  // input
+  --surface_input: rgba(52, 52, 52, 1);
+  --surface_input_disabled: rgba(56, 56, 56, 1);
+}

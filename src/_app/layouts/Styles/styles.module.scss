@@ -6,10 +6,10 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgb(17, 15, 15);
+    background-color: var(--surface_background);
     z-index: -1;
     top: 0;
-    opacity: 0.7;
+    opacity: 0.3;
   }
 }
 

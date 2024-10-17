@@ -7,7 +7,7 @@
   height: 20px;
 
   &::placeholder {
-    color: grey;
+    color: var(--dark-60);
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
@@ -15,13 +15,13 @@
 }
 
 .error {
-  color: red;
+  color: var(--text_error);
 
   path {
-    fill: red;
+    fill: var(--text_error);
   }
 
   &::placeholder {
-    color: red;
+    color: var(--red-10);
   }
 }
