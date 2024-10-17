@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const UserCharacters = ({ className, id }: Props) => {
-  const { data } = useGetUserCharacter(id);
+  const { data, t } = useGetUserCharacter(id);
   return (
     <div className={classNames(styles.wrapper, className)}>
       {data.map((el) => (
@@ -27,6 +27,7 @@ export const UserCharacters = ({ className, id }: Props) => {
               level: el.userData?.level || 0,
               critValue: el.userData?.critValue || 0,
             }}
+            name={t(el.localeName)}
             {...el}
           />
         </Link>

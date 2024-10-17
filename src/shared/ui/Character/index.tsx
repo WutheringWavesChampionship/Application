@@ -6,7 +6,7 @@ import { UserData } from '@entities/interfaces';
 
 interface Props {
   className?: string;
-  localeName: string;
+  name: string;
   imagePath: string;
   element: ElementEnum;
   additionalInfo?: Partial<UserData>;
@@ -16,7 +16,7 @@ export const Character = ({
   className,
   element,
   imagePath,
-  localeName,
+  name,
   additionalInfo,
 }: Props) => {
   return (
@@ -26,7 +26,7 @@ export const Character = ({
           width={100}
           height={100}
           src={imagePath}
-          alt="localeName"
+          alt={name}
           className={classNames(styles.image, styles[element])}
         />
         {additionalInfo && (
@@ -36,7 +36,7 @@ export const Character = ({
           </div>
         )}
       </div>
-      <p>{localeName}</p>
+      <p>{name}</p>
     </div>
   );
 };

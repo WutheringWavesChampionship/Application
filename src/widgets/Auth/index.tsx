@@ -1,3 +1,4 @@
+'use client';
 import classNames from 'classnames';
 import styles from './style.module.scss';
 import { Tab } from '@shared/ui/Tab';
@@ -6,6 +7,8 @@ import { TG_AUTH_PATH } from '@entities/constants';
 import { Divider } from '@shared/ui/Divider';
 import { LoginWidget } from './Login';
 import { RegistrationWidget } from './Registration';
+import { useTranslation } from '@features/client';
+import { useMemo } from 'react';
 
 interface Props {
   className?: string;
@@ -13,7 +16,10 @@ interface Props {
 }
 
 export const AuthWidget = ({ className, botName }: Props) => {
-  const labels = ['auth', 'registration'];
+  const { t } = useTranslation('common');
+  const labels = useMemo(() => {
+    return [t('login'), t('registration')];
+  }, [t]);
   const Tabs = [
     <LoginWidget key={'login'} />,
     <RegistrationWidget key={'registration'} />,
