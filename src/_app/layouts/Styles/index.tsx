@@ -31,7 +31,7 @@ export const StylesLayout = ({ children }: Props) => {
           className={styles.image}
           width={1024}
           height={980}
-          src={'/background/shores.jpg'}
+          src={'/background/20241018193341.png'}
           alt="background"
         />
       </div>
