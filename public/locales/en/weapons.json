@@ -1,0 +1,154 @@
+{
+  "stringmaster": {
+    "name": "Stringmaster",
+    "description": "Increases the damage of all resonance properties by 12-24%. Hitting an enemy with a resonance skill increases attack power by 12-24%, stacking up to 2 times. When the owner is not on the field, their attack is increased by an additional 12-24%."
+  },
+  "cosmicRipples": {
+    "name": "Cosmic Ripples",
+    "description": "Energy recovery is increased by 12.8-25.6%. When the owner hits an enemy with a basic attack, the damage bonus of this type increases by 3.2-6.4%, stacking up to 5 times. This effect lasts for 8 seconds and triggers once every 0.5 seconds."
+  },
+  "variation": {
+    "name": "Variation",
+    "description": "After using a resonance skill, restores 8-16 units of Concert energy. This effect can trigger once every 20 seconds."
+  },
+  "augment": {
+    "name": "Augment",
+    "description": "When Resonance Release is activated, attack power is increased by 15-48%. The effect lasts for 15 seconds."
+  },
+  "jinzhouKeeper": {
+    "name": "Jinzhou Keeper",
+    "description": "When the Intro skill triggers, attack power is increased by 8-16% and health by 10-20%. The effect lasts for 15 seconds."
+  },
+  "rectifierOfVoyager": {
+    "name": "Rectifier of Voyager",
+    "description": "After using a resonance skill, restores 8-12 units of resonance energy. This effect can trigger once every 20 seconds."
+  },
+  "guardianRectifier": {
+    "name": "Guardian Rectifier",
+    "description": "The damage bonus of basic and heavy attacks is increased by 12-24%."
+  },
+  "agesOfHarvest": {
+    "name": "Ages of Harvest",
+    "description": "Grants a 12%-24% bonus to all elemental damage. Each basic attack grants 1 Blessing of Ages, stacking up to 4 times and disappearing after leaving combat. Upon accumulating 4 or more stacks, the weapon bearer absorbs them and increases resonance skill damage by 48%-96% for 2.5 seconds. The effect triggers once every 6 seconds."
+  },
+  "verdantSummit": {
+    "name": "Verdant Summit",
+    "description": "Increases the damage of all Resonance properties by 12-24%. Activating the Intro Skill or Resonance Release increases heavy attack damage by 24-48%. The effect stacks up to 2 times and lasts for 14 seconds."
+  },
+  "lustrousRazor": {
+    "name": "Lustrous Razor",
+    "description": "Energy recovery is increased by 12.8-25.6%. Activating a Resonance Skill increases Resonance Release damage by 7-14%. The effect stacks up to 3 times and lasts for 12 seconds."
+  },
+  "autumntrace": {
+    "name": "Autumntrace",
+    "description": "When a basic or heavy attack deals damage, attack power is increased by 4-12.8%, stacking up to 5 times. The effect lasts for 7 seconds and can occur no more than once per second."
+  },
+  "heliosCleaver": {
+    "name": "Helios Cleaver",
+    "description": "For 12 seconds after activating a Resonance Skill, attack power increases by 3-6% every 2 seconds, stacking up to 4 times. Once the number of stacks reaches 12, the effect resets within 1 second."
+  },
+  "broadblade41": {
+    "name": "Broadblade#41",
+    "description": "When the Resonator's HP is above 80%, attack power is increased by 12%. If the Resonator's HP is between 40-80%, basic and heavy attacks restore 5-10% HP. The effect triggers no more than once every 8 seconds."
+  },
+  "broadbladeOfNight": {
+    "name": "Broadblade of Night",
+    "description": "After activating the Intro skill, attack power is increased by 8-16% for 10 seconds."
+  },
+  "veritysHandle": {
+    "name": "Verity's Handle",
+    "description": "Increases elemental damage by 12%-24%. After using Resonance Release, increases its damage by 48%-96% for 8 seconds. Using a resonance skill extends the effect duration by 5 seconds. The duration increase can be triggered up to 3 times."
+  },
+  "abyssSurges": {
+    "name": "Abyss Surges",
+    "description": "Energy recovery is increased by 12.8-25.6%. When an enemy takes damage from a resonance skill, the normal attack damage bonus is increased by 10-20% for 8 seconds. When a basic attack hits an enemy, the resonance skill damage bonus is increased by 10-20% for 8 seconds."
+  },
+  "stonard": {
+    "name": "Stonard",
+    "description": "After using a resonance skill, increases Resonance Release damage by 18%-54% for 15 seconds."
+  },
+  "hollowMirage": {
+    "name": "Hollow Mirage",
+    "description": "When Resonance Release is used, grants 3 stacks of Iron Armor. Each stack increases attack power and defense by 3%-5%, stacking up to 3 times. When the resonator takes damage, the number of stacks decreases by 1."
+  },
+  "gauntlets21D": {
+    "name": "Gauntlets#21D",
+    "description": "When the resonator dashes or dodges, their attack is increased by 8%-16%. Increases counterattack damage by 50%-100% for 8 seconds. After performing a counterattack, once every 6 seconds, restores 5%-10% of the resonator's HP."
+  },
+  "gauntletsOfNight": {
+    "name": "Gauntlets of Night",
+    "description": "When the resonator performs an Intro skill, increases attack power by 8%-16% for 10 seconds."
+  },
+  "marcato": {
+    "name": "Marcato",
+    "description": "After using a resonance skill, increases Concert energy by 8-16 units. The effect can occur once every 20 seconds."
+  },
+  "amityAccord": {
+    "name": "Amity Accord",
+    "description": "After using an Intro skill, increases Resonance Release damage by 20%-40% for 15 seconds."
+  },
+  "blazingBrilliance": {
+    "name": "Blazing Brilliance",
+    "description": "Increases attack power by 12%-24%. After dealing damage, grants 1 stack of Scorching Feather once every 0.5 seconds. After using a resonance skill, grants 5 stacks of Scorching Feather. Each stack increases resonance skill damage by 4%-8%. The effect stacks up to 14 times and lasts for 10 seconds."
+  },
+  "emeraldOfGenesis": {
+    "name": "Emerald of Genesis",
+    "description": "Increases energy recovery by 12.8-25.6%. When using a skill, attack power is increased by 6-12%. The effect stacks up to 2 times and lasts for 10 seconds."
+  },
+  "commandoOfConviction": {
+    "name": "Commando of Conviction",
+    "description": "When the Intro skill is activated, attack power is increased by 15-30% for 15 seconds."
+  },
+  "lunarCutter": {
+    "name": "Lunar Cutter",
+    "description": "Upon entering combat, the owner gains 6 levels of Oath status. Each stack increases attack power by 2-4%, stacking up to 6 times. The effect triggers once every 12 seconds. Every 2 seconds, the number of stacks decreases by 1. The owner gains an additional 6 levels after defeating an enemy."
+  },
+  "scaleSlasher": {
+    "name": "Scale Slasher",
+    "description": "When using a resonance skill, restores 8-16 units of Concert energy. The effect triggers once every 20 seconds."
+  },
+  "lumingloss": {
+    "name": "Lumingloss",
+    "description": "When using a skill, the damage of basic and heavy attacks is increased by 20-64%, stacking up to 1 time. The effect lasts for 10 seconds and triggers once per second."
+  },
+  "swordOfNight": {
+    "name": "Sword of Night",
+    "description": "When the Intro skill is activated, attack power is increased by 8-16% for 10 seconds."
+  },
+  "swordOfVoyager": {
+    "name": "Sword of Voyager",
+    "description": "After using a resonance skill, restores 8-12 units of resonance energy. The effect triggers once every 20 seconds."
+  },
+  "staticMist": {
+    "name": "Static Mist",
+    "description": "Increases energy recovery by 12.8%-25.6%. After using an Outro skill, increases the attack of the character switched to by 10%-20% once every 14 seconds."
+  },
+  "novaburst": {
+    "name": "Novaburst",
+    "description": "After accelerating or dodging, increases attack power by 4%-8% for 8 seconds. The effect stacks up to 3 times."
+  },
+  "undyingFlame": {
+    "name": "Undying Flame",
+    "description": "After using an Intro skill, increases resonance skill damage by 20%-40% for 15 seconds."
+  },
+  "pistols26": {
+    "name": "Pistols#26",
+    "description": "When the resonator does not take damage, attack is increased by 6%-12% every 5 seconds. The effect stacks up to 2 times and lasts for 8 seconds. When taking damage, stacks decrease by 1, and the resonator restores 5%-10% HP."
+  },
+  "thunderbolt": {
+    "name": "Thunderbolt",
+    "description": "After hitting a target with a normal or heavy attack, resonance skill damage is increased by 7%-23%. The effect can occur once per second, lasts for 10 seconds, and stacks up to 3 times."
+  },
+  "cadenza": {
+    "name": "Cadenza",
+    "description": "Restores 8-16 units of Concert energy after using a resonance skill. The effect occurs once every 20 seconds."
+  },
+  "pistolsOfNight": {
+    "name": "Pistols of Night",
+    "description": "Increases attack power by 8%-16% after using an Intro skill."
+  },
+  "pistolsOfVoyager": {
+    "name": "Pistols of Voyager",
+    "description": "Restores 8-12 units of resonance energy after activating a resonance skill. The effect triggers once every 20 seconds."
+  }
+}

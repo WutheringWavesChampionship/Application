@@ -23,7 +23,11 @@ export const useGetUserCharacter = ({ characters, id }: Props) => {
     try {
       setLoading(true);
       const characters = await getUserCharacters(id);
-      setData(characters);
+      setData(
+        characters.sort(
+          (a, b) => (b.userData?.level || 0) - (a.userData?.level || 0),
+        ),
+      );
     } catch (error) {
       console.error(error);
     } finally {

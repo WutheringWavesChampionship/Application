@@ -21,7 +21,10 @@ export default async function RootLayout({
     await AppDataSource.initialize();
   }
   return (
-    <TranslationsLoaderProvider language={language} namespaces={['characters']}>
+    <TranslationsLoaderProvider
+      language={language}
+      namespaces={['weapons', 'stats']}
+    >
       {children}
     </TranslationsLoaderProvider>
   );

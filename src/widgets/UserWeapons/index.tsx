@@ -35,7 +35,8 @@ export const UserWeapons = ({ className, id, data }: Props) => {
                 : undefined
             }
             {...el}
-            name={t(el.name)}
+            description={t(`${el.name}.description`)}
+            name={t(`${el.name}.name`)}
           />
         </Link>
       ))}
