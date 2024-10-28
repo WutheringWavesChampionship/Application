@@ -1,7 +1,7 @@
 import { Entity, Column } from 'typeorm';
 import { BaseEntity } from './baseEntity';
-import { ElementEnum, RarityEnum } from '@entities/constants';
-import { ICharacter } from '@entities/interfaces/character';
+import { ElementEnum, ICharacter, RarityEnum } from '@entities/interfaces';
+import { WEAPON_TYPES } from '@entities/interfaces/weapon';
 
 @Entity('characters')
 export class CharacterEntity extends BaseEntity implements ICharacter {
@@ -10,6 +10,18 @@ export class CharacterEntity extends BaseEntity implements ICharacter {
 
   @Column()
   imagePath!: string;
+
+  @Column({
+    enum: [
+      WEAPON_TYPES.BROAD_BLADE,
+      WEAPON_TYPES.GAUNTLETS,
+      WEAPON_TYPES.PISTOLS,
+      WEAPON_TYPES.RECTIFIER,
+      WEAPON_TYPES.SWORD,
+    ],
+    type: 'enum',
+  })
+  weaponType!: WEAPON_TYPES;
 
   @Column({
     enum: [
@@ -25,9 +37,9 @@ export class CharacterEntity extends BaseEntity implements ICharacter {
   element!: ElementEnum;
 
   @Column({
-    enum: [RarityEnum.COMMON, RarityEnum.LEGENDARY],
+    enum: [RarityEnum.LEGENDARY, RarityEnum.EPIC],
     type: 'enum',
-    default: RarityEnum.COMMON,
+    default: RarityEnum.EPIC,
   })
   rarity!: RarityEnum;
 }

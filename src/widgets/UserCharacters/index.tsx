@@ -6,6 +6,7 @@ import { Character } from '@shared/ui/Character';
 import Link from 'next/link';
 import { Paper } from '@shared/ui/Paper';
 import { ICharacter } from '@entities/interfaces';
+import { Button } from '@shared/ui/Button';
 
 interface Props {
   className?: string;
@@ -39,6 +40,9 @@ export const UserCharacters = ({ className, id, characters }: Props) => {
           />
         </Link>
       ))}
+      <Link href={'/settings'}>
+        <Button className={styles.back}>{'back'}</Button>
+      </Link>
     </Paper>
   );
 };

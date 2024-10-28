@@ -22,7 +22,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   if (!AppDataSource.isInitialized) {
-    await AppDataSource.initialize();
+    const source = await AppDataSource.initialize();
+    source.runMigrations();
   }
   const lang = (headers().get(LOCALE_COOKIE_NAME) ||
     DEFAULT_LANGUAGE) as LanguageEnum;

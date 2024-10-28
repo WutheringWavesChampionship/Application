@@ -1,8 +1,7 @@
 import classNames from 'classnames';
-import { ElementEnum } from '@entities/constants';
 import Image from 'next/image';
 import styles from './style.module.scss';
-import { UserData } from '@entities/interfaces';
+import { ElementEnum, UserData } from '@entities/interfaces';
 
 interface Props {
   className?: string;

@@ -8,7 +8,6 @@ import { Paper } from '@shared/ui/Paper';
 import { Button } from '@shared/ui/Button';
 import { TextField } from '@shared/ui/input';
 import { TextContent } from '@shared/ui/TextContent';
-import Link from 'next/link';
 
 interface Props {
   className?: string;
@@ -18,6 +17,7 @@ interface Props {
 export const CharacterWidget = ({ className, data }: Props) => {
   const {
     t,
+    router,
     loading,
     userData,
     createNew,
@@ -35,9 +35,9 @@ export const CharacterWidget = ({ className, data }: Props) => {
         name={t(data.localeName)}
         {...data}
       />
-      <Link href={'/settings'} className={styles.back}>
-        <Button variant="secondary">back</Button>
-      </Link>
+      <Button className={styles.back} variant="secondary" onClick={router.back}>
+        back
+      </Button>
       {userData ? (
         <div className={styles.userData}>
           <div className={styles.constants}>

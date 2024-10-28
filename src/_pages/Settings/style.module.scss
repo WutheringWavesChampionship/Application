@@ -4,3 +4,13 @@
   gap: 24px;
   min-height: 100%;
 }
+
+.paper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 24px;
+  margin: auto;
+  max-width: 50%;
+}

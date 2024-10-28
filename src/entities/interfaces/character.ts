@@ -1,4 +1,5 @@
-import { ElementEnum, RarityEnum } from '../constants';
+import { RarityEnum } from './rarity';
+import { WEAPON_TYPES } from './weapon';
 
 export interface ICharacter {
   localeName: string;
@@ -6,6 +7,7 @@ export interface ICharacter {
   element: ElementEnum;
   rarity: RarityEnum;
   id: number;
+  weaponType: WEAPON_TYPES;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -19,4 +21,13 @@ export interface UserData {
 
 export interface UserCharacter extends ICharacter {
   userData: UserData | null;
+}
+
+export enum ElementEnum {
+  SPECTRO = 'spectro',
+  HAVOC = 'havoc',
+  AERO = 'aero',
+  GLACIO = 'glacio',
+  FUSION = 'fusion',
+  ELECTRO = 'electro',
 }

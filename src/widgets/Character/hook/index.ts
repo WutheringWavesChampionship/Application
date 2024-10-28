@@ -90,7 +90,7 @@ export const useCharacterWidget = (characterId: number) => {
           id: data.id,
           level: Number(data.level),
         });
-        router.push('/settings');
+        router.push('/characters');
       } catch (error) {
         console.error(error);
       } finally {
@@ -110,6 +110,7 @@ export const useCharacterWidget = (characterId: number) => {
 
   return {
     t,
+    router,
     loading,
     userData,
     createNew,
